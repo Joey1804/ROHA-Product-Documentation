@@ -100,7 +100,7 @@ if st.button("🚀 Tạo File PDF SPEC", type="primary", use_container_width=Tru
 
             st.success("Tạo file PDF thành công!")
             st.download_button(
-                label="📥 Tải Xuống File PDF SPEC",
+                label="📥 Tải Xuống File PDF",
                 data=pdf_bytes,
                 file_name=f"SPEC_{material_no}_{material_desc}.pdf",
                 mime="application/pdf"
