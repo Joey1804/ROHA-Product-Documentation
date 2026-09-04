@@ -8,7 +8,7 @@ PATH_TO_WKHTMLTOPDF = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
 
 st.set_page_config(page_title="SPEC PDF Generator", layout="wide")
 
-st.title("📄 Công Cụ Tạo File Material Specification")
+st.title("📄 File Material Specification")
 st.write("Nhập các thông số")
 
 # 1. Thông tin chung
