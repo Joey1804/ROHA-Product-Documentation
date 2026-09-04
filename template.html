@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page {
+    size: A4;
+    margin: 1.5cm;
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-family: Arial, sans-serif;
+      font-size: 8pt;
+      color: #555;
+    }
+  }
+  body {
+    font-family: Arial, "Helvetica Neue", sans-serif;
+    color: #222222;
+    font-size: 9.5pt;
+    line-height: 1.3;
+  }
+  .header-table {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .company-name {
+    font-weight: bold;
+    font-size: 13pt;
+    color: #A61C1E;
+    text-transform: uppercase;
+  }
+  .slogan {
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: #A61C1E;
+    margin-bottom: 5px;
+  }
+  .doc-title {
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+    text-transform: uppercase;
+  }
+  .info-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #D3D3D3;
+  }
+  .info-grid td {
+    padding: 4px 6px;
+    vertical-align: top;
+  }
+  .label {
+    font-weight: bold;
+    width: 20%;
+  }
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  .spec-table th {
+    border-bottom: 1.5px solid #222;
+    padding: 6px;
+    text-align: left;
+    font-size: 9.5pt;
+  }
+  .spec-table td {
+    border-bottom: 1px solid #E0E0E0;
+    padding: 6px;
+  }
+  .text-center { text-align: center; }
+  .disclaimer {
+    font-size: 7.5pt;
+    color: #555;
+    margin-top: 20px;
+    text-align: justify;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <table class="header-table">
+    <tr>
+      <td style="width: 60%;">
+        <div class="company-name">{{ company_name }}</div>
+        <div class="slogan">{{ slogan }}</div>
+        <div style="font-size: 8.5pt;">{{ address }}<br>Tel: {{ tel }} | Fax: {{ fax }}<br>Email: {{ email }}</div>
+      </td>
+      <td style="width: 40%; text-align: right; vertical-align: top;">
+        <!-- Logo image if available -->
+        <strong style="font-size: 11pt; color: #333;">SIMPSONS™</strong><br>
+        <span style="font-size: 8.5pt; color: #666;">DYES & PIGMENT SPECIALISTS</span>
+      </td>
+    </tr>
+  </table>
+
+  <div class="doc-title">Material Specification</div>
+
+  <!-- Material Info Header Grid -->
+  <table class="info-grid">
+    <tr>
+      <td class="label">Material No</td><td>| {{ material_no }}</td>
+      <td class="label">Issue No.</td><td>| {{ issue_no }}</td>
+    </tr>
+    <tr>
+      <td class="label">Material Desc.</td><td>| <strong>{{ material_desc }}</strong></td>
+      <td class="label">CAS No.</td><td>| {{ cas_no }}</td>
+    </tr>
+    <tr>
+      <td class="label">Status</td><td>| {{ status }}</td>
+      <td class="label">Issue Date</td><td>| {{ issue_date }}</td>
+    </tr>
+    <tr>
+      <td class="label">C.I. Name</td><td>| {{ ci_name }}</td>
+      <td class="label">EINECS No.</td><td>| {{ einecs_no }}</td>
+    </tr>
+  </table>
+
+  <!-- Specs Table -->
+  <table class="spec-table">
+    <thead>
+      <tr>
+        <th style="width: 8%;">Sr No.</th>
+        <th style="width: 35%;">Specification</th>
+        <th style="width: 15%;">Method</th>
+        <th style="width: 12%;" class="text-center">UOM</th>
+        <th>Requirements</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td class="text-center">{{ loop.index }}</td>
+        <td>{{ item.spec_name }}</td>
+        <td>{{ item.method }}</td>
+        <td class="text-center">{{ item.uom }}</td>
+        <td>{{ item.requirement }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div style="margin-top: 15px;">
+    <strong>Shelf Life:</strong> {{ shelf_life }}
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> Above information is correct at the time of issue but may be subject to alteration. The information on the specification remains the property of {{ company_name }}. Information is correct to the best of our knowledge and it should not be construed as warranty. Users should conduct their own tests to determine the suitability of this product/data for this purpose.
+    <br><br>
+    <em>This is a system generated document, signature not required.</em>
+  </div>
+
+</body>
+</html>
