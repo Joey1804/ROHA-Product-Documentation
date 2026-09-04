@@ -36,9 +36,12 @@ st.markdown("---")
 st.subheader("2. Thông số Kỹ thuật (Specification Items)")
 
 default_specs = [
-    {"spec_name": "Appearance", "method": "", "uom": "", "requirement": "Blue powder"},
-    {"spec_name": "Strength", "method": "", "uom": "%", "requirement": "(Min) 95,00"},
-    {"spec_name": "pH Value", "method": "", "uom": "", "requirement": "6,0-10,0"},
+    {"spec_name": "Physical Appearance", "method": "", "uom": "", "requirement": "Blue powder"},
+    {"spec_name": "Strength", "method": "", "uom": "%", "requirement": "(Min.) 95,00"},
+    {"spec_name": "Loss of Drying (105°C)", "method": "", "uom": "%", "requirement": "(Max.) 8,00"},
+    {"spec_name": "Bulk Density", "method": "", "uom": "g/ml", "requirement": "0,50-1,50"},
+    {"spec_name": "pH Value", "method": "", "uom": "", "requirement": "2,00-8,00"},
+    {"spec_name": "Soluble in Water", "method": "", "uom": "", "requirement": "Yes"},
 ]
 
 # Sử dụng data_editor cho phép thêm/xóa/sửa hàng trực tiếp như Excel
